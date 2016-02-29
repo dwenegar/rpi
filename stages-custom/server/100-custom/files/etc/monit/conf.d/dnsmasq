@@ -1,0 +1,16 @@
+check process dnsmasq with pidfile /var/run/dnsmasq/dnsmasq.pid
+	group root
+	group root
+	start program = "/etc/init.d/dnsmasq start"
+	stop program = "/etc/init.d/dnsmasq stop"
+	if 5 restarts with 5 cycles then timeout
+	depend dnsmasq_bin
+	depend dnsmasq_rc
+
+check file dnsmasq_bin with path /usr/sbin/dnsmasq
+	group dnsmasq
+	include /etc/monit/templates/rootbin
+
+check file dnsmasq_rc with path /etc/init.d/dnsmasq
+	group dnsmasq
+	include /etc/monit/templates/rootbin

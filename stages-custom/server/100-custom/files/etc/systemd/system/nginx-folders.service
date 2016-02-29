@@ -1,0 +1,11 @@
+[Unit]
+Description=Create Nginx log folders in /var/log
+Before=nginx.service
+
+[Service]
+ExecStart=/usr/bin/install -g www-data -o www-data -d /var/log/nginx
+Type=oneshot
+RemainAfterExit=yes
+
+[Install]
+WantedBy=nginx.service

@@ -1,0 +1,11 @@
+10-mountfs-source
+20-apt.sh
+21-net.sh
+22-locales.sh
+23-timezone.sh
+24-root.sh
+25-user.sh
+26-system.sh
+30-lua.sh
+98-cofi.sh
+99-cleanup.sh

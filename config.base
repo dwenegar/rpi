@@ -1,0 +1,23 @@
+# Apt
+MIRROR=http://ftp.jaist.ac.jp/raspbian
+NO_RECOMMENDS=true
+
+# Root
+ROOT_SSH_PUBKEY=$HOME/.ssh/id_rsa.pub
+ROOT_PASSWD=simone
+
+# Custom users
+USER_FULLNAME="Simone Livieri"
+USER_NAME=simone
+USER_PASSWORD=simone
+USER_SSH_PUBKEY=$HOME/.ssh/id_rsa.pub
+USER_IS_SUDOER=1
+
+# Locales
+LOCALE=en_US.UTF-8
+
+# Timezone
+TIMEZONE=Asia/Tokyo
+
+# Other
+REDUCE=false
