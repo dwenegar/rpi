@@ -1,4 +1,5 @@
 monit
+nginx-light
 nginx
 dnsmasq
 dnsutils

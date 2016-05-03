@@ -8,6 +8,7 @@ console-setup
 cron
 curl
 debconf-utils
+dialog
 dosfstools
 ed
 fake-hwclock
@@ -45,7 +46,6 @@ sudo
 tcpd
 traceroute
 ucf
-ufw
 usbutils
 wget
 whiptail

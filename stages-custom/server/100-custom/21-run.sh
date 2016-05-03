@@ -20,7 +20,7 @@ config_nginx()
 
 	copy_file /etc/systemd/system/nginx-folders.service
 	in_target bin/bash -ex <<-EOF
-		rm /etc/nginx/sites-enabled/default
+		rm -fv /etc/nginx/sites-enabled/default
 		ln -s /etc/nginx/sites-available/00default /etc/nginx/sites-enabled/00default
 
 		mkdir -p /etc/systemd/system/nginx.service.wants
@@ -33,7 +33,7 @@ config_monit()
 {
 	copy_file /etc/monit/monitrc
 	copy_file /etc/monit/conf.d/dnsmasq
-	copy_file /etc/nginx/sites-available/20monit
+	copy_file /etc/nginx/sites-available/20monit.conf
 
 	in_target bin/bash -ex <<-EOF
 		chmod 0600 /etc/monit/monitrc
