@@ -11,7 +11,7 @@ source scripts/logging
 source scripts/mount
 
 declare image_size=1024
-declare boot_size=64M
+declare boot_size=256M
 
 #
 # Configuration /end

@@ -30,6 +30,7 @@ export PREVIOUS_TARGET=""
 
 ## Apt
 export MIRROR=https://mirrordirector.raspbian.org/raspbian
+export DIST=jessie
 export NO_RECOMMENDS=false
 
 ## Root

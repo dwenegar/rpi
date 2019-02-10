@@ -28,7 +28,6 @@ locales
 logrotate
 man-db
 mc
-module-init-tools
 nano
 ncdu
 net-tools
@@ -44,6 +43,7 @@ python
 raspberrypi-bootloader-nokernel
 rsyslog
 sudo
+systemd-sysv
 tcpd
 traceroute
 ucf

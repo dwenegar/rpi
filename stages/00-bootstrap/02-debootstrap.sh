@@ -9,4 +9,4 @@ http_proxy=http://localhost:3142 \
 		--arch=armhf \
 		--variant=minbase \
 		--keyring="$GNUPGHOME/pubring.gpg" \
-		jessie $TARGET $MIRROR
+		stretch $TARGET $MIRROR
