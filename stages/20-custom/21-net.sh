@@ -13,8 +13,7 @@ sed "$TARGET/etc/hostname" -i -e "s|HOSTNAME|$HOSTNAME|"
 			echo "${IP_ADDRESS%%/*}  $hostname"
 		fi
 	done
-} >> "$TARGET/etc/hosts"
-
+} >>"$TARGET/etc/hosts"
 
 if [ "$IP_ADDRESS" = "dhcp" ]; then
 	copy_file \
@@ -26,6 +25,7 @@ else
 	copy_file \
 		/etc/systemd/network/eth0.network.static \
 		/etc/systemd/network/eth0.network
+
 	{
 		echo "Address=$IP_ADDRESS"
 		echo "Gateway=$IP_GATEWAY"
@@ -35,7 +35,7 @@ else
 		if [ -n "$DOMAIN_NAME" ]; then
 			echo "Domains=$DOMAIN_NAME"
 		fi
-	} >> "$TARGET/etc/systemd/network/eth0.network"
+	} >>"$TARGET/etc/systemd/network/eth0.network"
 fi
 
 rm -fv "$TARGET/etc/resolv.conf"

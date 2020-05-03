@@ -4,7 +4,7 @@ set -e
 
 info "Checking dependencies"
 
-readonly dependencies=(apt-cacher-ng qemu-user-static debootstrap rsync whois)
+readonly dependencies=(apt-cacher-ng qemu-user-static debootstrap rsync whois kpartx)
 
 declare missing_dependencies=()
 for dependency in "${dependencies[@]}"; do

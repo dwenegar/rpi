@@ -50,6 +50,13 @@ in_target bin/bash <<-EOF
 	dpkg-reconfigure -f noninteractive keyboard-configuration
 
 	systemctl enable systemd-networkd
+
+	export VERSION_RPI=$(dpkg-query -f'${Depends}' -W linux-image-rpi-rpfv | sed -e 's/linux-//')
+	sed -i -e "s/VERSION_RPI/$VERSION_RPI/" /boot/config.txt
+
+	export VERSION_RPI2=$(dpkg-query -f'${Depends}' -W linux-image-rpi2-rpfv | sed -e 's/linux-//')
+	sed -i -e "s/VERSION_RPI2/$VERSION_RPI2/" /boot/config.txt
+
 EOF
 
 sed -e 's|AcceptEnv|#AcceptEnv|' -i "$TARGET/etc/ssh/sshd_config"

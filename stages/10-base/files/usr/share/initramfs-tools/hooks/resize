@@ -3,16 +3,15 @@
 set -e
 
 PREREQ=""
-prereqs()
-{
+prereqs() {
 	echo "$PREREQ"
 }
 
 case "$1" in
-	prereqs)
-		prereqs
-		exit 0
-		;;
+prereqs)
+	prereqs
+	exit 0
+	;;
 esac
 
 . /usr/share/initramfs-tools/hook-functions

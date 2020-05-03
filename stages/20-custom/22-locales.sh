@@ -7,8 +7,7 @@ if [ "$LOCALE" != "en_US.UTF-8" ]; then
 fi
 sed -i "/$LOCALE/s/^#//" "$TARGET/etc/locale.gen"
 
-generate_debconf()
-{
+generate_debconf() {
 	echo "locales locales/default_environment_locale select $LOCALE"
 	if [ "$LOCALE" != "en_US.UTF-8" ]; then
 		echo "locales locales/locales_to_be_generated multiselect $LOCALE UTF-8, en_US.UTF-8 UTF-8"

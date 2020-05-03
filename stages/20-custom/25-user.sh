@@ -3,7 +3,7 @@
 set -e
 
 if [ -n "$USER_NAME" ]; then
-	in_target	adduser --gecos "$USER_FULLNAME" --disabled-password --add_extra_groups "$USER_NAME"
+	in_target adduser --gecos "$USER_FULLNAME" --disabled-password --add_extra_groups "$USER_NAME"
 
 	if [ -f "$USER_SSH_PUBKEY" ]; then
 		declare ssh_dir="/home/$USER_NAME/.ssh"
@@ -23,7 +23,7 @@ if [ -n "$USER_NAME" ]; then
 	if [ "$USER_IS_SUDOER" = "true" ]; then
 		in_target usermod -aG sudo "$USER_NAME"
 		if [ -z "$USER_PASSWORD" ]; then
-			echo -n "$USER_NAME ALL = (ALL) NOPASSWD: ALL" > "$TARGET/etc/sudoers.d/$USER_NAME"
+			echo -n "$USER_NAME ALL = (ALL) NOPASSWD: ALL" >"$TARGET/etc/sudoers.d/$USER_NAME"
 		fi
 	fi
 fi

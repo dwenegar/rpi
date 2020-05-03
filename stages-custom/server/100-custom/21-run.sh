@@ -2,15 +2,13 @@
 
 set -e
 
-config_dnsmasq()
-{
+config_dnsmasq() {
 	copy_file /etc/dnsmasq.d/10tiny.dnsmasq.conf
 	sed -e '/^DNS/d' -i "$TARGET/etc/systemd/network/eth0.network"
-	echo "DNS=127.0.0.1" >> "$TARGET/etc/systemd/network/eth0.network"
+	echo "DNS=127.0.0.1" >>"$TARGET/etc/systemd/network/eth0.network"
 }
 
-config_nginx()
-{
+config_nginx() {
 	sed -e 's|# server_names_hash_bucket_size|server_names_hash_bucket_size|' \
 		-i "$TARGET/etc/nginx/nginx.conf"
 
@@ -29,8 +27,7 @@ config_nginx()
 	EOF
 }
 
-config_monit()
-{
+config_monit() {
 	copy_file /etc/monit/monitrc
 	copy_file /etc/monit/conf.d/dnsmasq
 	copy_file /etc/nginx/sites-available/20monit.conf
@@ -43,8 +40,7 @@ config_monit()
 	EOF
 }
 
-config_logrotate()
-{
+config_logrotate() {
 	copy_file /etc/logrotate.d/dnsmasq.conf
 	sed -e 's|#compress|compress|' -i "$TARGET/etc/logrotate.conf"
 }

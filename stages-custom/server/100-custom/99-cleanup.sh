@@ -28,7 +28,7 @@ rm -rf "$TARGET/tmp/*"
 rm -rfv "$TARGET/usr/sbin/policy-rc.d"
 
 [ -L $TARGET/var/lib/dbus/machine-id ] || rm \-fv $TARGET/var/lib/dbus/machine-id
-echo '' > /etc/machine-id
+echo '' >/etc/machine-id
 
 if [ -f "$TARGET/etc/ld.preload.disabled" ]; then
 	mv "$TARGET/etc/ld.preload.disabled" "$TARGET/etc/ld.preload"

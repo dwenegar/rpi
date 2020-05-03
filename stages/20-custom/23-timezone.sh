@@ -2,8 +2,7 @@
 
 set -e
 
-generate_debconf()
-{
+generate_debconf() {
 	local -r area=${TIMEZONE%/*}
 	local -r zone=${TIMEZONE#*/}
 	echo "tzdata tzdata/Areas select $area"

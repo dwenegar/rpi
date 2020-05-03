@@ -1,9 +1,9 @@
 gpu_mem=16
 
 [pi1]
-kernel=vmlinuz-4.9.0-4-rpi
-initramfs initrd.img-4.9.0-4-rpi followkernel
+kernel=vmlinuz-VERSION_RPI
+initramfs initrd.img-VERSION_RPI followkernel
 
 [pi2]
-kernel=vmlinuz-4.9.0-4-rpi2
-initramfs initrd.img-4.9.0-4-rpi2 followkernel
+kernel=vmlinuz-VERSION_RPI2
+initramfs initrd.img-VERSION_RPI2 followkernel

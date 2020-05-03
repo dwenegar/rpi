@@ -15,7 +15,7 @@ if [ "$(gpg --with-fingerprint --with-colons $output | grep ^fpr: | awk -F: '{pr
 	fail "Invalid hash for $output"
 fi
 
-in_target apt-key add - < "$output"
+in_target apt-key add - <"$output"
 
 copy_file /etc/apt/sources.list
 copy_file /etc/apt/sources.list.d/rpi.list
@@ -24,4 +24,3 @@ copy_file /etc/apt/apt.conf.d/50rpi-pdiff
 in_target bin/bash -x <<-EOF
 	http_proxy=http://localhost:3142 apt-get update
 EOF
-
