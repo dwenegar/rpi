@@ -1,5 +1,4 @@
-load_config()
-{
+load_config() {
 	local -r config="$1"
 	if [ -n "$config" ] && [ -f "$config" ]; then
 		info "Loading $config"
@@ -7,8 +6,7 @@ load_config()
 	fi
 }
 
-show_config()
-{
+show_config() {
 	info "Configuation:"
 	info "  MIRROR = $MIRROR"
 	info "  NO_RECOMMENDS = $NO_RECOMMENDS"
@@ -40,22 +38,20 @@ show_config()
 	info "  REDUCE = $REDUCE"
 }
 
-verify_config()
-{
+verify_config() {
 	if [ "$IP_ADDRESS" != "dhcp" ]; then
 		[ -n "$IP_GATEWAY" ] || fail "IP_GATEWAY is missing"
 		[ -n "$IP_NAMESERVERS" ] || fail "IP_NAMESERVERS is missing"
 	fi
 	if [ -n "$ROOT_SSH_PUBKEY" ]; then
-		[ -f $ROOT_SSH_PUBKEY ] || fail "root's ssh public key file ($ROOT_SSH_PUBKEY) is missing"
+		[ -f "$ROOT_SSH_PUBKEY" ] || fail "root's ssh public key file ($ROOT_SSH_PUBKEY) is missing"
 	fi
 	if [ -n "$USER_NAME" ] && [ -n "$USER_SSH_PUBKEY" ]; then
-		[ -f $USER_SSH_PUBKEY ] || fail "$USER_NAME's ssh public key file ($USER_SSH_PUBKEY) is missing"
+		[ -f "$USER_SSH_PUBKEY" ] || fail "$USER_NAME's ssh public key file ($USER_SSH_PUBKEY) is missing"
 	fi
 }
 
-sanitize_config()
-{
+sanitize_config() {
 	DISABLE_ROOT=$(sanitize_bool $DISABLE_ROOT)
 	USER_IS_SUDOER=$(sanitize_bool $USER_IS_SUDOER)
 	ENABLE_WATCHDOG=$(sanitize_bool $ENABLE_WATCHDOG)
@@ -75,11 +71,10 @@ sanitize_config()
 	fi
 }
 
-sanitize_bool()
-{
+sanitize_bool() {
 	local -r value="${1:-false}"
 	case $value in
-		false|no|0) echo "false" ;;
-		*) echo "true" ;;
+	false | no | 0) echo "false" ;;
+	*) echo "true" ;;
 	esac
 }

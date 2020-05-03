@@ -7,13 +7,12 @@ if [ "$(id -u)" != "0" ]; then
 	exit 1
 fi
 
-source scripts/logging
-source scripts/mount
+source scripts/logging.sh
+source scripts/mount.sh
 
 export TARGET=""
 
-main()
-{
+main() {
 	TARGET="$1"
 	if [ -z "$TARGET" ]; then
 		echo "You must provide a TARGET"
